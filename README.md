@@ -1,7 +1,7 @@
 # MKS Fly System
-A client and server **KrunkScript fly system** developed as part of the **[Miekie KrunkerScript Architecture Framework (MKS AF)](https://miekie-mks.vercel.app/)**.
+A client and server **KrunkScript Fly System** developed as part of the **[Miekie KrunkerScript Architecture Framework (MKS AF)](https://miekie-mks.vercel.app/)**.
 
-The system is inspired by the flight mechanics of Minecraft's Elytra, including the use of double-tapping SPACE to toggle flight and double-tapping W, A, S, and D to increase flight speed.
+The system is inspired by the flight mechanics of **Minecraft's Elytra**, including the use of double-tapping SPACE to toggle flight and double-tapping W, A, S, and D to increase flight speed.
 
 The system provides player flight with server-side state management, client-side movement, network synchronization, double-tap flight activation, and movement boosting.
 
