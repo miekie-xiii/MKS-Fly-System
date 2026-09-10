@@ -1,9 +1,9 @@
 ```
-# MKS AF v1.0.0
-# Server Script 
-# Miekie KrunkerScript Architecture Framework
+# Server Script runs only on Hosted server & not in test mode
+# KrunkScript Copyright (C) FRVR Limited
+#
+# Add custom actions here
 
-# -MKS Fly System-
 obj[] flyIDs=obj[];
 
 action netSd(str id,obj d,str pId) {
@@ -180,12 +180,27 @@ public action onPlayerUpdate(str id,num delta,obj inputs) {
 
  # Calculate movement
  if((str)inputs.movDir!="undefined") {
-  num a=yaw+Math.PI-movDir-Math.PI/2;
-  num c=speed;
+ num a=yaw+Math.PI-movDir-Math.PI/2;
+ num c=speed;
+ num cp=Math.cos(pitch);
 
-  x=Math.sin(a)*c;
-  z=Math.cos(a)*c;
-  y=Math.sin(pitch)*(0-Math.sin(movDir))*speed;
+ x=Math.sin(a)*cp*c;
+ z=Math.cos(a)*cp*c;
+ y=Math.sin(pitch)*(0-Math.sin(movDir))*speed;
+ GAME.log(
+  "MOV | "+
+  "yaw="+toStr(yaw)+
+  " | pitch="+toStr(pitch)+
+  " | movDir="+toStr(movDir)+
+  " | a="+toStr(a)+
+  " | speed="+toStr(speed)+
+  " | targetX="+toStr(x)+
+  " | targetY="+toStr(y)+
+  " | targetZ="+toStr(z)+
+  " | velX="+toStr((num)p.velocity.x)+
+  " | velY="+toStr((num)p.velocity.y)+
+  " | velZ="+toStr((num)p.velocity.z)
+ );
  }
 
  if(!ground&&jump) {
@@ -279,5 +294,4 @@ public action onNetworkMessage(str id,obj data,str pID) {
   }
  }
 }
-# -MKS Fly System-
 ```
